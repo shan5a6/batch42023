@@ -1,6 +1,7 @@
-def myfn1() {
-  println "welcome to functions in jenkins"
+def myfn1(a,b) {
+  println "value of a is ${a},value of b is ${b}"
 }
+
 
 pipeline {
   agent any 
@@ -8,7 +9,7 @@ pipeline {
     stage('working with conditions') {
       steps {
         script {
-          myfn1()
+          myfn1(10,20)
         }
       }
     }
