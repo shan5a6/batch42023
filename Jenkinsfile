@@ -4,6 +4,10 @@ pipeline {
     choice choices: ['dev', 'sit', 'uat'], description: 'select the environment', name: 'ENV'
     string defaultValue: '0.0.0', description: 'provide the version number', name: 'VERSION', trim: true
   }  
+  environment {
+    JAVA_HOME = "/usr/lib/java"
+  }
+
   stages {
     stage("welcome to dvs") {
       steps {
@@ -18,6 +22,8 @@ pipeline {
           // Accessing values of parameters
           println "my selected env is ${params.ENV}"
           println "my selected version is ${params.VERSION}"
+          // Accessing values from environment section 
+          println "my java home is ${env.JAVA_HOME}"
         }
       }
     }
