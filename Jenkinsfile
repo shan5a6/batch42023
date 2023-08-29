@@ -4,8 +4,8 @@ pipeline {
     stage('working with conditions') {
       steps {
         script {
-          a = 20
-          if( a == 20 ){
+          a = input message: 'please enter a value', parameters: [string(defaultValue: '0', name: 'val1', trim: true)]
+          if( a.toInteger() == 20 ){
             println "value of a is ${a}"
           }
           else {
